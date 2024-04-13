@@ -1,0 +1,58 @@
+[
+  {
+    "model": "ticketing.regions",
+    "pk": 1,
+    "fields": {
+      "name": "서울"
+    }
+  },
+  {
+    "model": "ticketing.regions",
+    "pk": 2,
+    "fields": {
+      "name": "경기/인천"
+    }
+  },
+  {
+    "model": "ticketing.regions",
+    "pk": 3,
+    "fields": {
+      "name": "충청/대전"
+    }
+  },
+  {
+    "model": "ticketing.regions",
+    "pk": 4,
+    "fields": {
+      "name": "전라/광주"
+    }
+  },
+  {
+    "model": "ticketing.regions",
+    "pk": 5,
+    "fields": {
+      "name": "경북/대구"
+    }
+  },
+  {
+    "model": "ticketing.regions",
+    "pk": 6,
+    "fields": {
+      "name": "경남/부산/울산"
+    }
+  },
+  {
+    "model": "ticketing.regions",
+    "pk": 7,
+    "fields": {
+      "name": "강원"
+    }
+  },
+  {
+    "model": "ticketing.regions",
+    "pk": 8,
+    "fields": {
+      "name": "제주"
+    }
+  }
+]

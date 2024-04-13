@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/jnsia.iml" filepath="$PROJECT_DIR$/.idea/jnsia.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/pjt_movies.iml" filepath="$PROJECT_DIR$/.idea/pjt_movies.iml" />
+>>>>>>> 0b1d84934761491d22110c658d80fef84c01ccc9
+    </modules>
+  </component>
+</project>
