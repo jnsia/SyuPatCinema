@@ -57,7 +57,41 @@
 
 # 배포 서버 URL
 
-- #### http://52.79.103.118/
+- #### 준비 중
+<br />
+
+# 프로젝트 실행
+
+## Frontend
+
+## Backend
+
+- 가상환경 생성 및 활성화
+```
+python -m venv venv
+source venv/Scripts/activate
+```
+
+- 라이브러리 설치
+```
+cd backend
+python.exe -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+- 데이터베이스 구축 및 데이터 로딩
+```
+python manage.py migrate
+
+python manage.py loaddata genre.json movies.json moviesData.json
+python manage.py loaddata regions.json theaters.json playdates.json
+```
+
+- 서버 실행
+```
+python manage.py runserver
+```
+
 <br />
 
 # 기술 스택
@@ -81,7 +115,7 @@
 <br />
 
 # DataBase ERD
-![SyuPatERD](SyuPatERD.PNG)
+![SyuPatERD](/readme/SyuPatERD.PNG)
 
 <br />
 
@@ -179,22 +213,22 @@ SYUPAT_CINEMA
 
 # 기능 명세서
 
-![Alt text](%EA%B8%B0%EB%8A%A5%EB%AA%85%EC%84%B8%EC%84%9C.png)
+![Alt text](/readme/기능명세서.png)
 
 <br />
 
 # 기능 구현 결과
 ### main page - youtobu API
-![Alt text](main_video2.gif)
+![Alt text](/readme/main_video2.gif)
 
 ### movie detail/like/follow
-![Alt text](movie_detail2.gif)
+![Alt text](/readme/movie_detail2.gif)
 
 ### 장르별 영화 추천
-![Alt text](main_genre2.gif)
+![Alt text](/readme/main_genre2.gif)
 
 ### 영화 상세 정보 공유 및 예매하기(결제 포함)
-![Alt text](Kakao_Share_Ticketing.gif)
+![Alt text](/readme/Kakao_Share_Ticketing.gif)
 
 <br />
 
