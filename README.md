@@ -457,3 +457,19 @@ serializer를 통해 정보를 전달하는 일련의 과정을 직접 해볼 �
 - 전체 스타일 수정
     - 모바일 뷰를 고려하여 반응형으로 수정
 
+
+# 리팩토링 기간 (2024냔 8월 7일 ~ 2024년 8월 9일)
+
+#### 2024년 8월 7일
+
+- 전반적인 폴더 이름 및 구조 변경
+    - django -> backend
+    - front/cinema-front-project -> frontend
+- frontend axios 객체 활용 및 도메인 별로 apis 분리
+- frontend 컴포넌트 분리 진행 중
+- frontend 로직 수정 및 최적화 진행 중
+- 부적절한 변수명 수정 및 삭제
+- backend request url 경로 및 response 데이터 일부 수정 중
+- 불필요한 데이터 요청에 대한 수정 진행 중
+- API key, API URL 등 보안 취약점 파악 및 수정 중
+- 시스템 아키텍처 개편 고려 중
