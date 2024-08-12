@@ -35,7 +35,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useAccountsStore } from "../stores/accounts";
+import { useAccountsStore } from "@/stores/accounts";
 
 const router = useRouter();
 const props = defineProps({

@@ -87,17 +87,20 @@ def review_detail(request, movie_pk, review_pk):
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated]) 
-def like_review(request, movie_pk, review_pk):
+def like_review(request, review_pk):
     review = Review.objects.get(pk=review_pk)
+    
     if request.user in review.like_users.all():
         review.like_users.remove(request.user)
         liked = False
     else:
         review.like_users.add(request.user)
         liked = True
+
     context = {
         'review_id' : review.id,
         'liked': liked,
         'likeCount' : len(review.like_users.all()),
     }
+
     return JsonResponse(context)

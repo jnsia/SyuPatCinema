@@ -16,7 +16,7 @@
         <div class="review-content">
           <p style="font-size: 14px;">{{ props.review.content }}</p>
           <button
-            v-if="store.token && store.userInfo.pk === props.review.user.id"
+            v-if="store.token && store.userId === props.review.user.id"
             class="btn btn-outline-secondary btn-sm"
             style="padding: 0px 4px;"
             @click="is_update = !is_update">
@@ -24,7 +24,7 @@
             <span> 수정</span>
           </button>
           <button
-            v-if="store.token && store.userInfo.pk === props.review.user.id"
+            v-if="store.token && store.userId === props.review.user.id"
             class="btn btn-outline-secondary btn-sm"
             style="padding: 0px 4px;"
             @click="deleteReview">
@@ -75,7 +75,7 @@
 
       <div id="review-like">
         <button class="btn btn-outline-secondary btn-sm" id="like-review" @click="clickLike" >
-          <div v-if="store.token!==null && props.review.like_users.includes(store.userInfo.pk)">
+          <div v-if="store.token!==null && props.review.like_users.includes(store.userId)">
             <font-awesome-icon :icon="['fas', 'heart']"  style="margin-right: 6px; color: red; font-size:small;" />
             <span style="font-size: small;">{{ props.review.like_users.length }}</span>
           </div>
@@ -90,8 +90,8 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from "vue";
-import { useAccountsStore } from "../stores/accounts";
+import { ref, computed } from "vue";
+import { useAccountsStore } from "@/stores/accounts";
 import { useRouter } from "vue-router";
 import axios from "axios";
 const router = useRouter();
@@ -174,39 +174,22 @@ const deleteReview = () => {
 }
 
 const starIcon = computed(() => {
-  if (props.review.score === 0) {
-    return [0, 0, 0, 0, 0];
-  } else if (props.review.score === 0.5) {
-    return [1, 0, 0, 0, 0];
-  } else if (props.review.score === 1) {
-    return [2, 0, 0, 0, 0];
-  } else if (props.review.score === 1.5) {
-    return [2, 1, 0, 0, 0];
-  } else if (props.review.score === 2) {
-    return [2, 2, 0, 0, 0];
-  } else if (props.review.score === 2.5) {
-    return [2, 2, 1, 0, 0];
-  } else if (props.review.score === 3) {
-    return [2, 2, 2, 0, 0];
-  } else if (props.review.score === 3.5) {
-    return [2, 2, 2, 1, 0];
-  } else if (props.review.score === 4) {
-    return [2, 2, 2, 2, 0];
-  } else if (props.review.score === 4.5) {
-    return [2, 2, 2, 1, 0];
-  } else if (props.review.score === 5) {
-    return [2, 2, 2, 2, 2];
-  }
+  const score = props.review.score;
+
+  // 별 개수와 반별 개수를 정의
+  const fullStars = Math.floor(score / 1);
+  const halfStars = score % 1 >= 0.5 ? 1 : 0;
+
+  // 총 5개의 별 아이콘 배열 생성
+  return [0, 0, 0, 0, 0].map((_, index) => {
+    if (index < fullStars) return 2; // 전체 별
+    if (index === fullStars && halfStars) return 1; // 반 별
+    return 0; // 빈 별
+  });
 });
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  font-size: 10px;
-}
-
 #review {
   border: 1px solid rgb(232, 232, 232);
   border-radius: 20px;

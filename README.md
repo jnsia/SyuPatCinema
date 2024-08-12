@@ -68,13 +68,14 @@
 
 - 가상환경 생성 및 활성화
 ```
+cd backend
+
 python -m venv venv
 source venv/Scripts/activate
 ```
 
 - 라이브러리 설치
 ```
-cd backend
 python.exe -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
@@ -458,7 +459,7 @@ serializer를 통해 정보를 전달하는 일련의 과정을 직접 해볼 �
     - 모바일 뷰를 고려하여 반응형으로 수정
 
 
-# 리팩토링 기간 (2024냔 8월 7일 ~ 2024년 8월 9일)
+# 리팩토링 기간 (2024냔 8월 7일 ~ )
 
 #### 2024년 8월 7일
 
@@ -473,3 +474,12 @@ serializer를 통해 정보를 전달하는 일련의 과정을 직접 해볼 �
 - 불필요한 데이터 요청에 대한 수정 진행 중
 - API key, API URL 등 보안 취약점 파악 및 수정 중
 - 시스템 아키텍처 개편 고려 중
+
+#### 2024년 8월 12일
+
+- Profile 페이지 컴포넌트 분리
+    - 리뷰 좋아요 클릭 시 렌더링이 매끄럽게 되도록 변경
+- 일부 Serializer 수정
+    - API 호출을 최대한 줄이기 위함
+    - 리뷰 관련한 Serializer 용도에 맞게 수정
+- 도메인 별 API 분리 중

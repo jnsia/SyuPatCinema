@@ -38,7 +38,15 @@ class ReviewListSerializer(serializers.ModelSerializer):
         model = Review
         fields = '__all__'
 
+
 class ReviewSerializer(serializers.ModelSerializer):
+    class MovieSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Movie
+            fields = ['pk', 'title', 'poster_path']
+
+    movie = MovieSerializer(read_only=True)
+
     class Meta:
         model = Review
         fields = '__all__'

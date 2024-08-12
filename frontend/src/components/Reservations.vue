@@ -45,12 +45,28 @@ const props = defineProps({
   regions: Array,
 });
 
-onMounted(() => {
-  for (const obj in props.regions) {
+const regions = ref(null)
+
+const getRegions = async () => {
+  axios({
+    method: "GET",
+    url: `${store.API_URL}/ticketing/regions/`,
+  })
+    .then((response) => {
+      regions.value = response.data;
+      console.log("regions ", regions.value);
+    })
+    .catch((err) => console.log(err));
+};
+
+onMounted(async () => {
+  await getRegions()
+
+  for (const obj in regions.value) {
     if (
-      props.regions[obj].id === props.reservation.ticket_set[0]?.theater.regions
+      regions.value[obj].id === props.reservation.ticket_set[0]?.theater.regions
     ) {
-      region.value = props.regions[obj].name;
+      region.value = regions.value[obj].name;
       break;
     }
   }
@@ -64,10 +80,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
 #reservation {
   display: flex;
   justify-content: space-around;

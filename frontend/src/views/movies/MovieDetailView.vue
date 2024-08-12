@@ -56,8 +56,8 @@ import axios from "axios";
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useAccountsStore } from "@/stores/accounts";
-import ReviewCreate from "@/components/ReviewCreate.vue";
-import MovieReview from "@/components/MovieReview.vue";
+import ReviewCreate from "@/components/movies/ReviewCreate.vue";
+import MovieReview from "@/components/movies/MovieReview.vue";
 
 const store = useAccountsStore();
 const route = useRoute();
